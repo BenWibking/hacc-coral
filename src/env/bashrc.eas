@@ -1,0 +1,40 @@
+export PATH='/bgsys/drivers/ppcfloor/comm/xl/bin:'$PATH
+
+export HACC_PLATFORM="eas"
+export HACC_OBJDIR="${HACC_PLATFORM}"
+
+incdirflg="-DIBMCMP_BUILTINS=\\\"/opt/ibmcmp/vacpp/bg/12.1/include/builtins.h\\\""
+export HACC_CFLAGS="-D__bgq__ $incdirflg -g"
+export HACC_CC="bgxlc_r"
+
+export HACC_CXXFLAGS="-D__bgq__ $incdirflg -g"
+export HACC_CXX="bgxlcxx_r"
+
+export HACC_LDFLAGS=""
+
+export HACC_MPI_CFLAGS="-D__bgq__ $incdirflg -O3 -qnohot -qsmp=omp -g"
+export HACC_MPI_CC="mpixlc_r"
+
+export HACC_MPI_CXXFLAGS="-D__bgq__ $incdirflg -O3 -qnohot -qsmp=omp -g"
+export HACC_MPI_CXX="mpixlcxx_r"
+
+export HACC_MPI_LDFLAGS="-L/home/xamorozov/HPM/lib -lmpihpm_smp -L/bgsys/drivers/ppcfloor/bgpm/lib -lbgpm"
+
+export FFTW_MAJOR_VERSION=3
+export FFTW_THREADING=omp
+
+root=/home/xahfinkel/install/fftw3
+
+export FFTW_HOME=${root}
+export FFTW_INCLUDE=${root}/include
+export CPATH=${root}/include:${CPATH}
+if [ -f ${root}/lib64 ] 
+then
+export LD_LIBRARY_PATH=${root}/lib64:${LD_LIBRARY_PATH}
+else
+export LD_LIBRARY_PATH=${root}/lib:${LD_LIBRARY_PATH}
+fi
+export INFOPATH=${root}/share/info:${INFOPATH}
+export MANPATH=${root}/share/man:$MANPATH
+export PATH=${root}/bin:${PATH}
+

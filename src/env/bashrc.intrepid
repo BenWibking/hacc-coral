@@ -1,0 +1,43 @@
+export PATH='/bgsys/drivers/ppcfloor/comm/bin:'$PATH
+
+source /etc/profile.d/00softenv.sh
+soft add +subversion-1.6.11
+
+export HACC_PLATFORM="intrepid"
+export HACC_OBJDIR="${HACC_PLATFORM}"
+
+export HACC_CFLAGS=""
+export HACC_CC="gcc"
+
+export HACC_CXXFLAGS=""
+export HACC_CXX="g++"
+
+export HACC_LDFLAGS=""
+
+export HACC_MPI_CFLAGS="-O3 -qhot -qsmp=omp"
+export HACC_MPI_CC="tmpwrap mpixlc_r"
+
+export HACC_MPI_CXXFLAGS="-O3 -qhot -qsmp=omp"
+export HACC_MPI_CXX="tmpwrap mpixlcxx_r"
+
+export HACC_MPI_LDFLAGS=""
+
+export FFTW_MAJOR_VERSION=3
+
+name=fftw
+version=3.3alpha1
+root=/home/apope/opt/${name}/${version}
+
+export FFTW_HOME=${root}
+export FFTW_INCLUDE=${root}/include
+export CPATH=${root}/include:${CPATH}
+if [ -f ${root}/lib64 ] 
+then
+export LD_LIBRARY_PATH=${root}/lib64:${LD_LIBRARY_PATH}
+else
+export LD_LIBRARY_PATH=${root}/lib:${LD_LIBRARY_PATH}
+fi
+export INFOPATH=${root}/share/info:${INFOPATH}
+export MANPATH=${root}/share/man:$MANPATH
+export PATH=${root}/bin:${PATH}
+

@@ -1,0 +1,74 @@
+======================================================================
+Aggregate BG/Q counter data for jobid 1
+This report includes all 8192 processes in MPI_COMM_WORLD and a total of 8192 cores
+======================================================================
+----------------------------------------------------------------
+mpiAll, call count = 2, avg cycles = 2940353265936, max cycles = 2940353514358 :
+  -- Counter values for processes in this reporting group ----
+    min-value  min-rank    max-value  max-rank    avg-value   label
+  1.334437e+10    1023   1.479654e+10    6771   1.412973e+10  Committed Load Misses
+  8.459211e+11    2484   8.700945e+11    7280   8.578881e+11  Committed Cacheable Loads
+  2.353872e+10    1023   2.685661e+10    6771   2.526841e+10  L1p miss
+  1.796409e+12    7156   1.825918e+12    7280   1.809202e+12  All XU Instruction Completions
+  2.186201e+12    2484   2.338930e+12    5737   2.267585e+12  All AXU Instruction Completions
+  1.427235e+13    2484   1.528373e+13    5737   1.481064e+13  FP Operations Group 1 
+
+Histogram of floating-point operation counts:
+    flop-bin      #ranks
+  1.427235e+13         2
+  1.434459e+13        13
+  1.441683e+13        83
+  1.448907e+13       201
+  1.456132e+13       493
+  1.463356e+13       834
+  1.470580e+13      1173
+  1.477804e+13      1359
+  1.485028e+13      1346
+  1.492253e+13      1152
+  1.499477e+13       826
+  1.506701e+13       439
+  1.513925e+13       209
+  1.521149e+13        53
+  1.528373e+13         9
+
+Derived metrics for code block "mpiAll" averaged over process(es) in the reporting group
+Instruction mix:  FPU = 55.62 %,  FXU = 44.38 %
+Instructions per cycle completed per core = 1.3865
+Per cent of max issue rate per core = 77.12 %
+Total weighted TFlops = 66.021326
+
+----------------------------------------------------------------
+step, call count = 2, avg cycles = 2868586413745, max cycles = 2868590950620 :
+  -- Counter values for processes in this reporting group ----
+    min-value  min-rank    max-value  max-rank    avg-value   label
+  1.314178e+10    1023   1.459802e+10    6771   1.392988e+10  Committed Load Misses
+  8.406050e+11    2484   8.644270e+11    7280   8.525681e+11  Committed Cacheable Loads
+  2.343764e+10    1023   2.675871e+10    6771   2.516892e+10  L1p miss
+  1.775940e+12    7156   1.804395e+12    7280   1.788522e+12  All XU Instruction Completions
+  2.184308e+12    2484   2.337037e+12    5737   2.265687e+12  All AXU Instruction Completions
+  1.426748e+13    2484   1.527887e+13    5737   1.480577e+13  FP Operations Group 1 
+
+Histogram of floating-point operation counts:
+    flop-bin      #ranks
+  1.426748e+13         2
+  1.433973e+13        13
+  1.441197e+13        83
+  1.448421e+13       201
+  1.455645e+13       493
+  1.462869e+13       834
+  1.470093e+13      1173
+  1.477318e+13      1359
+  1.484542e+13      1346
+  1.491766e+13      1152
+  1.498990e+13       826
+  1.506214e+13       439
+  1.513439e+13       209
+  1.520663e+13        53
+  1.527887e+13         9
+
+Derived metrics for code block "step" averaged over process(es) in the reporting group
+Instruction mix:  FPU = 55.88 %,  FXU = 44.12 %
+Instructions per cycle completed per core = 1.4133
+Per cent of max issue rate per core = 78.98 %
+Total weighted TFlops = 67.650709
+

@@ -1,0 +1,44 @@
+Welcome to rru2, the halfway point in reorganizing the code from rru
+(RoadRunner Universe) to HACC (H* Accelerated Cosmology Code). The major
+goal of rru2 is to consolidate source files in rru and improve the build
+system.
+
+If you want to build executables for running n-body simulations, follow
+these "easy" steps:
+
+1) Source the appropriate environment file in "env" for the machine you
+are using. If a file does not exist, either create one suitable for the
+new machine or bug us to make a new one.
+
+2) Go to the "cpu" directory and type "make". This will build "hacc_pm"
+(Particle-Mesh) and "hacc_tpm" (TreePM) into a subdirectory for your system.
+The subdirectory system allows you to build executables for multiple
+machines in the same source tree.
+
+Some of the subdirectories also have stand-alone codes that are not built by
+default.
+
+If you are on Cerrillos you can repeat step 2 in the "cell" directory to make
+an IBM Cell hybrid version of "hacc_pm" and "hacc_p3m" (Particle-Particle PM).
+
+Typing "make clean" from the top level directory will clean all of the
+subdirectories for your current machine.
+
+Important note for intrepid/challenger: the compute nodes mount your home
+directory in read-only mode, so you must run codes somewhere else in the
+file system (eg. /intrepid-fs0) if they will attempt to write files to disk.
+
+Initially the code has changed very little from rru, so the arguments and
+input files for the "hacc_*" executables are the same as for "mc3_*" with one
+important caveat about backward compatibility. There is now a single
+"indat" format that includes all of the extra parameters that are needed
+for the P3M and TreePM codes, so you may need to add some extra dummy
+lines to older PM and P3M indat files. There is an example "indat" file in
+the "simulation" directory. Now that the code is consolidated it will be
+easier to make the inputs more user friendly, and hopefully the READMEs and
+the wiki
+
+https://trac.alcf.anl.gov/projects/DarkUniverse
+
+will keep pace with the changes. It should be much easier to keep everything
+up-to-date now.

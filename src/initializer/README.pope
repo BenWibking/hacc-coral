@@ -1,0 +1,84 @@
+right now i compile by sourcing one of
+
+../pm_par_opt/cshrc.fftw3
+../pm_par_opt/cshrc.fftw2
+../pm_par_opt/cshrc.mvapich2
+
+to load the appropriate modules.
+
+the Makefile is currently set up to compile with fftw-3.3a1.  minor changes
+allow it to be compiled with fftw-2.1.5.  i have not personally tested the
+output for fftw-2.1.5.
+
+i have added a new driver that produces an executable called "init2".  this
+new driver supports type size flexibility for particle IDs.  it compiles
+with flags in ../halo_finder/include.mk, and changing -ID_32 to -ID_64
+in that file will change the size of particle IDs in init2.  type size
+flexibility is not currently supported for floating point values, but
+it should be relatively straighforward to add if desired.  my idea for
+creating a new driver is to leave Zarija's driver to test however he
+wants and to leave it independent of other directories, since the
+type size flexibility requires reading a file in ../halo_finder.
+
+running "init2" without command line arguments gives a brief usage synopsis:
+
+USAGE: init2 <indatName> <tfName> <outBase> <ROUND_ROBIN|ONE_TO_ONE> [subSampleName]
+
+<> are required arguments and [] are optional
+
+<indatName> is the name of the indat file
+
+<tfName> is the name of the transfer function file (see cmb.tf)
+
+<outBase> is the base for output name, actual files will have ".hcosmo.X" 
+appended, where X is the mpi rank, one file per mpi rank.  output files 
+are .hcosmo files with units of Mpc/h and km/s.
+
+<ROUND_ROBIN|ONE_TO_ONE> ROUND_ROBIN will produce output files from the
+particles that were originally in each processor's domain before the
+zeldovich move, so the boundaries are "fuzzy" and one would need to
+use ROUND_ROBIN read in the simulation codes.  ONE_TO_ONE uses
+../halo_finder/InitialExchange to reorganize particles into the
+correct domains after the zeldovich move so that one can use a
+ONE_TO_ONE read from the simulation code.  ONE_TO_ONE is compatible
+with subSample, but the number of processors/files is the same
+for all samples/subSamples.
+
+[subSampleName] OPTIONAL name of file with desired sub-samplings in
+addition to the fully sampled ICs.  file format doesn't matter as long as 
+there is white space between the sub-samplings.  there is an example
+file called "subSamples.dat" which puts them one per line.  the output 
+file names change slightly.  for example, if np = 16 and the
+sub-sample file indicates 2 and 4, then the full ICs will be called
+<outBase>.16.<rank>, and the subsampled ICs will be called
+<outBase>.8.<rank> and <outBase>.4.<rank>.  if no sub-samplings file
+is given then the full ICs output files are <outBase>.<rank>.  no check
+is done between np and the desired subsample, so if np%subsample != 0
+then things might not quite be right at the boundaries.  if the subsample
+factor is n, then every nth particle IN EACH DIMENSION is output, so
+the total number of output particles is (np/n)^3.
+
+note: Zarija changed the definition of the "trans" parameter in the indat 
+file - i updated the example indat file to have the correct comment, and 
+the other README has more info about this.  trans=0 will use a transfer 
+funtion file.  if you specify a different kind of transfer function, then 
+you will still need to invoke "init" with a tfName, but it won't get used.
+it does not matter whether an overload length is specified in the indat file.
+
+note: Zarija added the dark energy equation of state to the indat file,
+and i decided to put it before the overload length.  i updated the
+indat file example.
+
+note: running "init2" on the same indat file with a different number of mpi
+ranks will produce a different number of files, and the particles will be
+different.
+
+note: the files produced by "init2" with -ID_64 are very similar to
+previous .hcosmo files, except that the last column is an 8 byte integer
+instead of a 4 byte integer.  the first 7 columns are 4 byte floats.
+
+note: for some reason using openmpi-1.3.3, -ID_64, ONE_TO_ONE,
+and subSample causes a seg fault in MPI_Finalize().  it seems like the
+output is written correctly, but i will look into this further.
+
+adrian 2009/08/13

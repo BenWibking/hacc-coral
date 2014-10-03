@@ -1,0 +1,25 @@
+module load openmpi-gcc/1.4.3
+module use /usr/projects/rru/opt/cerrillos/modules
+module load rru-fftw-3.3-openmpi-gcc-1.4.3
+unsetenv CC
+
+setenv FFTW_MAJOR_VERSION 3
+
+setenv HACC_PLATFORM "mapache"
+setenv HACC_OBJDIR "${HACC_PLATFORM}"
+
+setenv HACC_CFLAGS "-O3"
+setenv HACC_CC "gcc"
+
+setenv HACC_CXXFLAGS "-O3"
+setenv HACC_CXX "g++"
+
+setenv HACC_LDFLAGS "-lm"
+
+setenv HACC_MPI_CFLAGS "-O3 -Wall -std=c99"
+setenv HACC_MPI_CC "mpicc"
+
+setenv HACC_MPI_CXXFLAGS "-O3 -Wall -Wno-deprecated"
+setenv HACC_MPI_CXX "mpicxx"
+
+setenv HACC_MPI_LDFLAGS "-lm"

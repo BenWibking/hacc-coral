@@ -1,0 +1,68 @@
+export PATH='/bgsys/drivers/ppcfloor/comm/xl.legacy.ndebug/bin:'$PATH
+
+export HACC_PLATFORM="vesta"
+export HACC_OBJDIR="${HACC_PLATFORM}"
+
+COMPILER_PATH=/soft/compilers/ibmcmp-may2012
+
+incdirflg="-DIBMCMP_BUILTINS=\\\"${COMPILER_PATH}/vacpp/bg/12.1/include/builtins.h\\\""
+ompflg="-qsmp=omp:noauto -DRCB_UNTHREADED_BUILD"
+#ompflg="-qsmp=nested_par:noauto"
+
+
+export HACC_CC=$COMPILER_PATH/vacpp/bg/12.1/bin/bgxlc_r
+export HACC_CXX=$COMPILER_PATH/vacpp/bg/12.1/bin/bgxlc++_r
+export HACC_MPI_CC=$HACC_CC
+export HACC_MPI_CXX=$HACC_CXX
+
+export HACC_CFLAGS="-I/bgsys/drivers/ppcfloor/comm/xl.legacy/include -I/bgsys/drivers/ppcfloor -I/bgsys/drivers/ppcfloor/spi/include/kernel/cnk -D__bgq__ $incdirflg -O3 -qhot=level=1 ${ompflg} -g"
+
+export HACC_CXXFLAGS=$HACC_CFLAGS
+export HACC_MPI_CFLAGS=$HACC_CFLAGS
+export HACC_MPI_CXXFLAGS=$HACC_CFLAGS
+
+export HACC_LDFLAGS=""
+export HACC_MPI_LDFLAGS="-L/home/morozov/HPM/lib -lmpihpm_smp -L/bgsys/drivers/ppcfloor/bgpm/lib -lbgpm -L/opt/ibmcmp/xlsmp/bg/3.1/bglib64 -lxlsmp -L/bgsys/drivers/ppcfloor/comm/xl.legacy/lib -lcxxmpich -lmpich -lopa -lmpl -L/bgsys/drivers/ppcfloor/comm/sys/lib -lpami -L/bgsys/drivers/ppcfloor/spi/lib -lSPI_cnk -lrt -lpthread -lstdc++"
+
+export FFTW_MAJOR_VERSION=3
+
+# currently "omp" turns on fftw omp threads
+# any other value turns off fftw omp threads, eg. "none"
+export FFTW_THREADING=none
+
+use_essl=yes
+if [ "x$use_essl" = xyes ]; then
+export FFTW_WRAPPER=essl
+export ESSL_LIBDIR=/home/morozov/ESSL5.1.1-20120305 
+export XLF_LIBDIR=${COMPILER_PATH}/xlf/bg/14.1/bglib64
+root=/gpfs/mira-home/morozov/Work/ALCF3/CoralApps/HACC/src/essl_fftw
+
+export FFTW_HOME=${root}
+export FFTW_INCLUDE=${root}/include
+export CPATH=${root}/include:${CPATH}
+if [ -f ${root}/bglib64 ] 
+then
+export LD_LIBRARY_PATH=${root}/bglib64:${LD_LIBRARY_PATH}
+else
+export LD_LIBRARY_PATH=${root}/bglib:${LD_LIBRARY_PATH}
+fi
+
+else
+
+root=/home/morozov/00Acceptance/fftw-3.2.2
+
+export FFTW_HOME=${root}
+export FFTW_INCLUDE=${root}/include
+export CPATH=${root}/include:${CPATH}
+if [ -f ${root}/lib64 ] 
+then
+export LD_LIBRARY_PATH=${root}/lib64:${LD_LIBRARY_PATH}
+else
+export LD_LIBRARY_PATH=${root}/lib:${LD_LIBRARY_PATH}
+fi
+export INFOPATH=${root}/share/info:${INFOPATH}
+export MANPATH=${root}/share/man:$MANPATH
+export PATH=${root}/bin:${PATH}
+
+fi
+

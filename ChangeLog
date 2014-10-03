@@ -1,0 +1,23 @@
+July 2, 2013: Version 1.3 was released
+
+Added the recommendation for larger thread stack size
+
+June 18, 2013: Version 1.2 was released
+
+Added large run cases: 8K, 24K and 48K
+Added "CORAL HACC Benchmark Summary v1.1.docx" benchmark description document
+
+May 31, 2013: Version 1.1 was released
+
+Updated halo_finder/BGQCM.c file with generic version of the function.
+
+Updated halo_finder/BGQStep16.c file to be compatible with the use of generic 
+version of short-force evaluation kernel.
+
+Included this file to track changes
+
+Included env/bashrc.mn3 file to port to MareNostrum III supercomputer at 
+Barcelona Supercomputing Center
+
+
+May 1, 2013: Version 1.0 was released

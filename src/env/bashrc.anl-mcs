@@ -1,0 +1,39 @@
+export HACC_PLATFORM="anl-mcs"
+export HACC_OBJDIR="${HACC_PLATFORM}"
+
+export HACC_CFLAGS="-O3 -fopenmp"
+export HACC_CC="gcc"
+
+export HACC_CXXFLAGS="-O3 -fopenmp"
+export HACC_CXX="g++"
+
+export HACC_LDFLAGS="-lm"
+
+export HACC_MPI_CFLAGS="-O3 -fopenmp -Wall -std=c99"
+export HACC_MPI_CC="mpicc"
+
+export HACC_MPI_CXXFLAGS="-O3 -fopenmp -Wall -Wno-deprecated"
+export HACC_MPI_CXX="mpicxx"
+
+export HACC_MPI_LDFLAGS="-lm"
+
+export FFTW_MAJOR_VERSION=3
+
+name=fftw3
+root=/homes/hfinkel/install/${name}
+export FFTW_HOME=${root}
+export FFTW_INCLUDE=${root}/include
+export CPATH=${root}/include:${CPATH}
+if [ -f ${root}/lib64 ] 
+then
+export LD_LIBRARY_PATH=${root}/lib64:${LD_LIBRARY_PATH}
+export HACC_LDFLAGS="${HACC_LDFLAGS} -Xlinker -rpath -Xlinker ${root}/lib64"
+export HACC_MPI_LDFLAGS="${HACC_MPI_LDFLAGS} -Xlinker -rpath -Xlinker ${root}/lib64"
+else
+export LD_LIBRARY_PATH=${root}/lib:${LD_LIBRARY_PATH}
+export HACC_LDFLAGS="${HACC_LDFLAGS} -Xlinker -rpath -Xlinker ${root}/lib"
+export HACC_MPI_LDFLAGS="${HACC_MPI_LDFLAGS} -Xlinker -rpath -Xlinker ${root}/lib"
+fi
+export INFOPATH=${root}/share/info:${INFOPATH}
+export MANPATH=${root}/share/man:$MANPATH
+export PATH=${root}/bin:${PATH}

@@ -1,0 +1,17 @@
+SIM_HOME := ../simulation
+SIM_HEADERS += ${SIM_HOME}/array_index.h
+SIM_HEADERS += ${SIM_HOME}/Domain.h
+SIM_HEADERS += ${SIM_HOME}/Halodata.h
+SIM_HEADERS += ${SIM_HOME}/lightcone.h
+SIM_HEADERS += ${SIM_HOME}/mc3defines.h
+SIM_HEADERS += ${SIM_HOME}/MC3Extras.h
+SIM_HEADERS += ${SIM_HOME}/mc3.h
+SIM_HEADERS += ${SIM_HOME}/MC3Options.h
+SIM_HEADERS += ${SIM_HOME}/mc3types.h
+SIM_HEADERS += ${SIM_HOME}/SimpleTimings.h
+SIM_HEADERS += ${SIM_HOME}/skewers.h
+SIM_HEADERS += ${SIM_HOME}/spline.h
+SIM_HEADERS += ${SIM_HOME}/TimeStepper.h
+SIM_CFLAGS := -I${SIM_HOME}
+SIM_CXXFLAGS := -I${SIM_HOME}
+SIM_LDFLAGS := -L${SIM_HOME}/${HACC_OBJDIR}

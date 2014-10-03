@@ -1,0 +1,45 @@
+export PATH='/bgsys/drivers/ppcfloor/comm/xl.legacy.ndebug/bin:'$PATH
+
+export HACC_PLATFORM="veas"
+export HACC_OBJDIR="${HACC_PLATFORM}"
+
+incdirflg="-DIBMCMP_BUILTINS=\\\"/soft/compilers/ibmcmp-feb2012/vacpp/bg/12.1/include/builtins.h\\\""
+ompflg="-qsmp=omp:noauto -DRCB_UNTHREADED_BUILD"
+#ompflg="-qsmp=nested_par:noauto"
+export HACC_CFLAGS="-D__bgq__ $incdirflg -g"
+export HACC_CC="bgxlc_r"
+
+export HACC_CXXFLAGS="-D__bgq__ $incdirflg -g"
+export HACC_CXX="bgxlcxx_r"
+
+export HACC_LDFLAGS=""
+
+export HACC_MPI_CFLAGS="-D__bgq__ $incdirflg -O3 -qhot=level=1 ${ompflg} -g"
+export HACC_MPI_CC="mpixlc_r"
+
+export HACC_MPI_CXXFLAGS="-D__bgq__ $incdirflg -O3 -qhot=level=1 ${ompflg} -g"
+export HACC_MPI_CXX="mpixlcxx_r"
+
+export HACC_MPI_LDFLAGS="-L/home/morozov/HPM/lib -lmpihpm_smp -L/bgsys/drivers/ppcfloor/bgpm/lib -lbgpm"
+
+export FFTW_MAJOR_VERSION=3
+
+# currently "omp" turns on fftw omp threads
+# any other value turns off fftw omp threads, eg. "none"
+export FFTW_THREADING=none
+
+root=/home/hfinkel/install/fftw3
+
+export FFTW_HOME=${root}
+export FFTW_INCLUDE=${root}/include
+export CPATH=${root}/include:${CPATH}
+if [ -f ${root}/lib64 ] 
+then
+export LD_LIBRARY_PATH=${root}/lib64:${LD_LIBRARY_PATH}
+else
+export LD_LIBRARY_PATH=${root}/lib:${LD_LIBRARY_PATH}
+fi
+export INFOPATH=${root}/share/info:${INFOPATH}
+export MANPATH=${root}/share/man:$MANPATH
+export PATH=${root}/bin:${PATH}
+

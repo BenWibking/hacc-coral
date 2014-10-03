@@ -1,0 +1,39 @@
+source /etc/profile.d/00softenv.sh
+soft add +mpich2-1.3.1-gnu
+
+export HACC_PLATFORM="eureka"
+export HACC_OBJDIR="${HACC_PLATFORM}"
+
+export HACC_CFLAGS="-O3"
+export HACC_CC="gcc"
+
+export HACC_CXXFLAGS="-O3"
+export HACC_CXX="g++"
+
+export HACC_LDFLAGS="-lm"
+
+export HACC_MPI_CFLAGS="-O3 -Wall -std=c99"
+export HACC_MPI_CC="mpicc"
+
+export HACC_MPI_CXXFLAGS="-O3 -Wall -Wno-deprecated"
+export HACC_MPI_CXX="mpicxx"
+
+export HACC_MPI_LDFLAGS="-lm"
+
+export FFTW_MAJOR_VERSION=3
+
+name=fftw
+version=3.3a1
+root=/home/apope/eureka/opt/${name}/${version}
+export FFTW_HOME=${root}
+export FFTW_INCLUDE=${root}/include
+export CPATH=${root}/include:${CPATH}
+if [ -f ${root}/lib64 ] 
+then
+export LD_LIBRARY_PATH=${root}/lib64:${LD_LIBRARY_PATH}
+else
+export LD_LIBRARY_PATH=${root}/lib:${LD_LIBRARY_PATH}
+fi
+export INFOPATH=${root}/share/info:${INFOPATH}
+export MANPATH=${root}/share/man:$MANPATH
+export PATH=${root}/bin:${PATH}

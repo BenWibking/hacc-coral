@@ -1,0 +1,14 @@
+2013-06-16 22:50:02.275 (INFO ) [0x40000a1b970] 24260:ibm.runjob.AbstractOptions: using properties file /bgsys/local/etc/bg.properties
+2013-06-16 22:50:02.277 (INFO ) [0x40000a1b970] 24260:ibm.runjob.AbstractOptions: max open file descriptors: 524287
+2013-06-16 22:50:02.278 (INFO ) [0x40000a1b970] 24260:ibm.runjob.AbstractOptions: core file limit: 18446744073709551615
+2013-06-16 22:50:02.278 (INFO ) [0x40000a1b970] 24260:tatu.runjob.client: scheduler job id is 90439
+2013-06-16 22:50:02.284 (INFO ) [0x40000403290] 24260:tatu.runjob.monitor: monitor started
+2013-06-16 22:50:02.286 (INFO ) [0x40000a1b970] MIR-00000-7BFF1-49152:24260:ibm.runjob.client.options.Parser: set local socket to runjob_mux from properties file
+2013-06-16 22:50:12.868 (INFO ) [0x40000a1b970] MIR-00000-7BFF1-49152:244608:ibm.runjob.client.Job: job 244608 started
+2013-06-16 22:50:17.836 (INFO ) [0x40000403290] 24260:tatu.runjob.monitor: tracklib completed
+2013-06-16 23:59:43.772 (INFO ) [0x40000a1b970] MIR-00000-7BFF1-49152:244608:ibm.runjob.client.Job: exited with status 0
+2013-06-16 23:59:43.773 (WARN ) [0x40000a1b970] MIR-00000-7BFF1-49152:244608:ibm.runjob.client.Job: 717 RAS events
+2013-06-16 23:59:43.773 (WARN ) [0x40000a1b970] MIR-00000-7BFF1-49152:244608:ibm.runjob.client.Job: most recent RAS event text: DDR Correctable Error Summary : count=570 MCFIR error status:  [MEMORY_CE] This bit is set when a memory CE is detected on a non-maintenance memory read op;
+2013-06-16 23:59:43.773 (INFO ) [0x40000a1b970] tatu.runjob.client: task exited with status 0
+2013-06-16 23:59:43.774 (INFO ) [0x40000403290] 24260:tatu.runjob.monitor: monitor terminating
+2013-06-16 23:59:43.778 (INFO ) [0x40000a1b970] tatu.runjob.client: monitor completed

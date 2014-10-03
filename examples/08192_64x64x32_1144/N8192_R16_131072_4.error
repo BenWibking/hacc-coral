@@ -1,0 +1,14 @@
+2013-06-13 03:14:24.995 (INFO ) [0x40000a1b970] 35419:ibm.runjob.AbstractOptions: using properties file /bgsys/local/etc/bg.properties
+2013-06-13 03:14:24.997 (INFO ) [0x40000a1b970] 35419:ibm.runjob.AbstractOptions: max open file descriptors: 524287
+2013-06-13 03:14:24.997 (INFO ) [0x40000a1b970] 35419:ibm.runjob.AbstractOptions: core file limit: 18446744073709551615
+2013-06-13 03:14:24.997 (INFO ) [0x40000a1b970] 35419:tatu.runjob.client: scheduler job id is 90533
+2013-06-13 03:14:25.001 (INFO ) [0x40000403290] 35419:tatu.runjob.monitor: monitor started
+2013-06-13 03:14:25.002 (INFO ) [0x40000a1b970] MIR-08000-3BFF1-8192:35419:ibm.runjob.client.options.Parser: set local socket to runjob_mux from properties file
+2013-06-13 03:14:29.274 (INFO ) [0x40000a1b970] MIR-08000-3BFF1-8192:241281:ibm.runjob.client.Job: job 241281 started
+2013-06-13 03:14:39.873 (INFO ) [0x40000403290] 35419:tatu.runjob.monitor: tracklib completed
+2013-06-13 04:15:41.700 (INFO ) [0x40000a1b970] MIR-08000-3BFF1-8192:241281:ibm.runjob.client.Job: exited with status 0
+2013-06-13 04:15:41.701 (WARN ) [0x40000a1b970] MIR-08000-3BFF1-8192:241281:ibm.runjob.client.Job: 71 RAS events
+2013-06-13 04:15:41.701 (WARN ) [0x40000a1b970] MIR-08000-3BFF1-8192:241281:ibm.runjob.client.Job: most recent RAS event text: ND Sender Retransmission Correctable Error : D- count=1 
+2013-06-13 04:15:41.702 (INFO ) [0x40000a1b970] tatu.runjob.client: task exited with status 0
+2013-06-13 04:15:41.702 (INFO ) [0x40000403290] 35419:tatu.runjob.monitor: monitor terminating
+2013-06-13 04:15:41.705 (INFO ) [0x40000a1b970] tatu.runjob.client: monitor completed

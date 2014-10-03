@@ -1,0 +1,13 @@
+INIT_HOME := ../initializer
+INIT_HEADERS := ${INIT_HOME}/Basedata.h
+INIT_HEADERS += ${INIT_HOME}/Cosmology.h
+INIT_HEADERS += ${INIT_HOME}/DataBase.h
+INIT_HEADERS += ${INIT_HOME}/Initializer.h
+INIT_HEADERS += ${INIT_HOME}/MT_Random.h
+INIT_HEADERS += ${INIT_HOME}/Parallelization.h
+INIT_HEADERS += ${INIT_HOME}/PerfMon.h
+INIT_HEADERS += ${INIT_HOME}/TypesAndDefs.h
+#INIT_WARNING := -Wmissing-noreturn -Wunused -Wsign-compare -Wshadow -Wformat
+INIT_CFLAGS := -I${INIT_HOME} ${INIT_WARNING}
+INIT_CXXFLAGS := -I${INIT_HOME} ${INIT_WARNING}
+INIT_LDFLAGS := -L${INIT_HOME}/${HACC_OBJDIR}

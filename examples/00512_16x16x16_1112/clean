@@ -1,0 +1,1 @@
+rm -f *.error *.cobaltlog *.output hpm_job_summary.* hpm_process_summary.* mpi_profile.* vmon.out.* core.*

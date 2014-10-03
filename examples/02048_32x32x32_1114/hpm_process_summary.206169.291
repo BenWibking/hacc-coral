@@ -1,0 +1,59 @@
+
+======================================================================
+Hardware counter report for BGQ  - sum for node <0,0,0,9,0>.
+cores in use = 16, active threads per core = 4.
+======================================================================
+----------------------------------------------------------------
+mpiAll, call count = 4, avg cycles = 4397136805084, max cycles = 4397136808018 :
+  -- Counter values summed over processes on this node ----
+0     332900840029   Committed Load Misses
+0   20289924689223   Committed Cacheable Loads
+0     590050815431   L1p miss
+0   42891656313644   All XU Instruction Completions
+0   53312735404484   All AXU Instruction Completions
+0   348245132242636   FP Operations Group 1 
+  -- L2 counters (shared for the node) -----------------
+100  8918070601257  L2 Hits
+100     5651719187  L2 Misses
+100     7216875074  L2 lines loaded from main memory
+100     5301074616  L2 lines stored to   main memory
+
+
+Derived metrics for code block "mpiAll" averaged over process(es) on node <0,0,0,9,0>:
+Instruction mix:  FPU = 55.42 %,  FXU = 44.58 %
+Instructions per cycle completed per core = 1.3674
+Per cent of max issue rate per core = 75.78 %
+Total weighted GFlops for this node = 126.717
+Loads that hit in L1 d-cache =  98.36 %
+                  L1P buffer =   0.00 %
+                  L2 cache   =   1.64 %
+                  DDR        =   0.00 %
+DDR traffic for the node: ld = 0.210, st = 0.154, total = 0.364 (Bytes/cycle)
+
+----------------------------------------------------------------
+step, call count = 3, avg cycles = 4277940971272, max cycles = 4277942923768 :
+  -- Counter values summed over processes on this node ----
+0     327998575106   Committed Load Misses
+0   20145420325693   Committed Cacheable Loads
+0     586765507673   L1p miss
+0   42348798321837   All XU Instruction Completions
+0   53276032672199   All AXU Instruction Completions
+0   348151691550113   FP Operations Group 1 
+  -- L2 counters (shared for the node) -----------------
+100  8846678076131  L2 Hits
+100     4154308605  L2 Misses
+100     6205679317  L2 lines loaded from main memory
+100     4259321687  L2 lines stored to   main memory
+
+
+Derived metrics for code block "step" averaged over process(es) on node <0,0,0,9,0>:
+Instruction mix:  FPU = 55.71 %,  FXU = 44.29 %
+Instructions per cycle completed per core = 1.3971
+Per cent of max issue rate per core = 77.84 %
+Total weighted GFlops for this node = 130.213
+Loads that hit in L1 d-cache =  98.37 %
+                  L1P buffer =   0.00 %
+                  L2 cache   =   1.63 %
+                  DDR        =   0.00 %
+DDR traffic for the node: ld = 0.186, st = 0.127, total = 0.313 (Bytes/cycle)
+

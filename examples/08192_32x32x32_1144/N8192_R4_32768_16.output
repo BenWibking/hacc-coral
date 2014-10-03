@@ -1,0 +1,245 @@
+hwthread assignments for MPI rank 0: 
+1111111111111111000000000000000000000000000000000000000000000000
+HPM library is counting hpm group 0 using 4 threads per core.
+Partition 3D: [32:32:32]
+Threads per process: 16
+Allocated heap: 128.40 MB, avail. heap: 3871.58 MB
+Allocated stack: 0.02 MB, avail. stack: 3871.58 MB
+Memory: shared: 32.00 MB, persist: 0.00 MB, guard: 0.00 MB, mmap: 126.40 MB
+Done loading parameters.
+Initializing redistribution using a pencil layout on 32768 ranks.
+distribution 1D: [32768:1:1]
+distribution 3D: [32:32:32]
+distribution 2z: [256:128:1]
+distribution 2x: [1:256:128]
+distribution 2y: [256:1:128]
+
+Initializer will use 32768 processors.
+6656^3 grid
+Decomposing into pencils...............done
+Using white noise initializer
+
+sigma_8 = 0.800000, target was 0.800000
+redshift: 50.000000; growth factor = 0.025580; derivative = 4.929764
+
+
+FFT DONE!
+
+Min and max value of density in k space: -458.385 442.498
+Average value of density in k space: -5.86436e-06
+
+FFT DONE!
+
+Max value of the imaginary part of density is 5.16358e-09
+Min and max value of density in code units: -23.7558 23.5927
+Average value of density in code units: -8.86212e-09
+
+FFT DONE!
+
+FFT DONE!
+
+Max value of the imaginary part of the force is 8751.41
+Min and max value of force in code units: -53.6309 53.3566
+Average value of force in code units: 4.00096e-06
+Max move in X: 1.37185
+Average move in X: 0.165929
+
+FFT DONE!
+
+FFT DONE!
+
+Max value of the imaginary part of the force is 9251.96
+Min and max value of force in code units: -56.0341 51.9866
+Average value of force in code units: -8.61514e-06
+Max move in Y: 1.43333
+Average move in Y: 0.165859
+
+FFT DONE!
+
+FFT DONE!
+
+Max value of the imaginary part of the force is 8555.8
+Min and max value of force in code units: -50.2994 51.0194
+Average value of force in code units: 1.09564e-06
+Max move in Z: 1.30505
+Average move in Z: 0.16623
+
+
+====================================================================
+Initializer: code performance summary 
+             code beginning : Fri Jun 14 08:21:31 2013
+             code ending    : Fri Jun 14 08:23:22 2013
+             total run time : 113.36 seconds 
+====================================================================
+
+Routine            # of calls       Time [s]       Percent of total 
+--------------------------------------------------------------------
+Initialization       1              2.8                2.47     
+Creating Pk(x,y,z)   1              5.74               5.064    
+Tests                7              34.23              30.2     
+Creating rho(x,y,z)  3              31.92              28.16    
+Poisson solve        3              43.55              38.42    
+Particle move        3              2.37               2.091    
+Output               3              0.57               0.5028   
+====================================================================
+
+PXCH buffer = 2*1674550 = 3.193951 MB
+InitialExchange TotalAliveParticles 294876348416
+
+------------------------------------
+boxSize:  4800
+deltaBox: 8.65385
+PXCH buffer = 2*22691680 = 43.280945 MB
+TotalAliveParticles 294876348416
+TotalDeadParticles  114306732852
+
+
+Allocated heap: 971.11 MB, avail. heap: 3028.87 MB
+Allocated stack: 0.02 MB, avail. stack: 3028.87 MB
+Memory: shared: 32.00 MB, persist: 0.00 MB, guard: 0.00 MB, mmap: 675.62 MB
+Initializing redistribution using a pencil layout on 32768 ranks.
+distribution 1D: [32768:1:1]
+distribution 3D: [32:32:32]
+distribution 2z: [256:128:1]
+distribution 2x: [1:256:128]
+distribution 2y: [256:1:128]
+P(k) initial
+
+
+Allocated heap: 1383.05 MB, avail. heap: 2616.92 MB
+Allocated stack: 0.02 MB, avail. stack: 2616.92 MB
+Memory: shared: 32.00 MB, persist: 0.00 MB, guard: 0.00 MB, mmap: 1239.36 MB
+STEP 0, pp = 0.019608, a = 0.019608, z = 50.000003
+	tree post-build statistics (local for rank 0):
+		particles: 12461739.00
+		nodes: 65535.00 (allocated:  97357.00)
+		leaves: 32768.00 (empty: 0.00)
+		mean ppn: 380.30 (max ppn: 483)
+		build time: 11.7084 s
+	tree post-build statistics (local for rank 0):
+		particles: 12461632.00
+		nodes: 65535.00 (allocated:  97357.00)
+		leaves: 32768.00 (empty: 0.00)
+		mean ppn: 380.30 (max ppn: 473)
+		build time: 11.6901 s
+	tree post-build statistics (local for rank 0):
+		particles: 12461461.00
+		nodes: 65535.00 (allocated:  97353.00)
+		leaves: 32768.00 (empty: 0.00)
+		mean ppn: 380.29 (max ppn: 478)
+		build time: 11.6465 s
+	tree post-build statistics (local for rank 0):
+		particles: 12461151.00
+		nodes: 65535.00 (allocated:  97353.00)
+		leaves: 32768.00 (empty: 0.00)
+		mean ppn: 380.28 (max ppn: 473)
+		build time: 11.7124 s
+	tree post-build statistics (local for rank 0):
+		particles: 12460771.00
+		nodes: 65535.00 (allocated:  97349.00)
+		leaves: 32768.00 (empty: 0.00)
+		mean ppn: 380.27 (max ppn: 471)
+		build time: 11.6924 s
+Initializing redistribution using a pencil layout on 32768 ranks.
+distribution 1D: [32768:1:1]
+distribution 3D: [32:32:32]
+distribution 2z: [256:128:1]
+distribution 2x: [1:256:128]
+distribution 2y: [256:1:128]
+total alive density   = 294876355495.015625
+total alive particles = 294876323530
+step   max  1.093e+03 s  avg  1.093e+03 s  min  1.092e+03 s
+
+Allocated heap: 1541.81 MB, avail. heap: 2458.17 MB
+Allocated stack: 0.02 MB, avail. stack: 2458.17 MB
+Memory: shared: 32.00 MB, persist: 0.00 MB, guard: 0.00 MB, mmap: 1316.56 MB
+STEP 1, pp = 0.028945, a = 0.028945, z = 33.548389
+	tree post-build statistics (local for rank 0):
+		particles: 12460168.00
+		nodes: 65535.00 (allocated:  97345.00)
+		leaves: 32768.00 (empty: 0.00)
+		mean ppn: 380.25 (max ppn: 470)
+		build time: 11.6543 s
+	tree post-build statistics (local for rank 0):
+		particles: 12459395.00
+		nodes: 65535.00 (allocated:  97337.00)
+		leaves: 32768.00 (empty: 0.00)
+		mean ppn: 380.23 (max ppn: 471)
+		build time: 11.6653 s
+	tree post-build statistics (local for rank 0):
+		particles: 12458567.00
+		nodes: 65535.00 (allocated:  97333.00)
+		leaves: 32768.00 (empty: 0.00)
+		mean ppn: 380.21 (max ppn: 473)
+		build time: 11.656 s
+	tree post-build statistics (local for rank 0):
+		particles: 12457856.00
+		nodes: 65535.00 (allocated:  97325.00)
+		leaves: 32768.00 (empty: 0.00)
+		mean ppn: 380.18 (max ppn: 472)
+		build time: 11.7637 s
+	tree post-build statistics (local for rank 0):
+		particles: 12457164.00
+		nodes: 65535.00 (allocated:  97321.00)
+		leaves: 32768.00 (empty: 0.00)
+		mean ppn: 380.16 (max ppn: 475)
+		build time: 11.8106 s
+Initializing redistribution using a pencil layout on 32768 ranks.
+distribution 1D: [32768:1:1]
+distribution 3D: [32:32:32]
+distribution 2z: [256:128:1]
+distribution 2x: [1:256:128]
+distribution 2y: [256:1:128]
+total alive density   = 294876355489.738342
+total alive particles = 294876325452
+step   max  1.045e+03 s  avg  1.045e+03 s  min  1.044e+03 s
+
+Allocated heap: 1541.81 MB, avail. heap: 2458.17 MB
+Allocated stack: 0.02 MB, avail. stack: 2458.17 MB
+Memory: shared: 32.00 MB, persist: 0.00 MB, guard: 0.00 MB, mmap: 1316.58 MB
+STEP 2, pp = 0.038282, a = 0.038282, z = 25.121953
+	tree post-build statistics (local for rank 0):
+		particles: 12456451.00
+		nodes: 65535.00 (allocated:  97317.00)
+		leaves: 32768.00 (empty: 0.00)
+		mean ppn: 380.14 (max ppn: 475)
+		build time: 11.6974 s
+	tree post-build statistics (local for rank 0):
+		particles: 12455690.00
+		nodes: 65535.00 (allocated:  97309.00)
+		leaves: 32768.00 (empty: 0.00)
+		mean ppn: 380.12 (max ppn: 475)
+		build time: 11.7637 s
+	tree post-build statistics (local for rank 0):
+		particles: 12454870.00
+		nodes: 65535.00 (allocated:  97301.00)
+		leaves: 32768.00 (empty: 0.00)
+		mean ppn: 380.09 (max ppn: 472)
+		build time: 11.751 s
+	tree post-build statistics (local for rank 0):
+		particles: 12454026.00
+		nodes: 65535.00 (allocated:  97297.00)
+		leaves: 32768.00 (empty: 0.00)
+		mean ppn: 380.07 (max ppn: 485)
+		build time: 11.7861 s
+	tree post-build statistics (local for rank 0):
+		particles: 12453204.00
+		nodes: 65535.00 (allocated:  97289.00)
+		leaves: 32768.00 (empty: 0.00)
+		mean ppn: 380.04 (max ppn: 484)
+		build time: 11.7883 s
+Initializing redistribution using a pencil layout on 32768 ranks.
+distribution 1D: [32768:1:1]
+distribution 3D: [32:32:32]
+distribution 2z: [256:128:1]
+distribution 2x: [1:256:128]
+distribution 2y: [256:1:128]
+total alive density   = 294876355486.162964
+total alive particles = 294876326460
+step   max  1.046e+03 s  avg  1.045e+03 s  min  1.045e+03 s
+
+P(k) final
+
+ACCUMULATED STATS
+step   max  3.183e+03 s  avg  3.183e+03 s  min  3.182e+03 s
+vprof: collected 335105 hits at 5358 program-counter locations

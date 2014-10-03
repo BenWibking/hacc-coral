@@ -1,0 +1,30 @@
+pm_par_opt = Particle-Mesh Parallel Opteron
+
+this code has the same type size flexibility as the halo_finder code.
+modify the "HF_TYPE_FLAGS" to change type sizes, eg change -ID_32 to
+-ID_64 for 8 byte particle IDs (necessary if np >~ 1280) instead of 4 byte.
+if any of the types are set to be 8 bytes, then the input and output files
+will be like .(h)cosmo formatted files, except that the columns will be
+8 bytes instead of 4 bytes for those columns that have had their type
+size changed.
+
+USAGE: mc3 <indat> <inBase> <outBase> RECORD|BLOCK|COSMO ROUND_ROBIN|ONE_TO_ONE
+
+indat: input parameter file name
+
+inBase: base for initial condition file names; code searches for all
+"inBase.*" files as initial condition files.
+
+outBase: base for output file names; output file names will be "outBase.X"
+where "X" is an mpi rank, one output file per rank.
+
+RECORD: .hcosmo
+BLOCK: gadget2
+COSMO: .cosmo
+
+ROUND_ROBIN: all particles are passed to all ranks to get alive particles
+ONE_TO_ONE: particles in files are correctly decomposed
+
+note: the indat format has been altered to agree with the initializer.
+dark energy equation of state is now the second to last parameter and
+overload length is the last.  see the example.

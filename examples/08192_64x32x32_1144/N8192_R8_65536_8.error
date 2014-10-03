@@ -1,0 +1,14 @@
+2013-06-13 04:24:16.942 (INFO ) [0x40000a1b970] 58399:ibm.runjob.AbstractOptions: using properties file /bgsys/local/etc/bg.properties
+2013-06-13 04:24:16.944 (INFO ) [0x40000a1b970] 58399:ibm.runjob.AbstractOptions: max open file descriptors: 524287
+2013-06-13 04:24:16.944 (INFO ) [0x40000a1b970] 58399:ibm.runjob.AbstractOptions: core file limit: 18446744073709551615
+2013-06-13 04:24:16.944 (INFO ) [0x40000a1b970] 58399:tatu.runjob.client: scheduler job id is 90537
+2013-06-13 04:24:16.948 (INFO ) [0x40000403290] 58399:tatu.runjob.monitor: monitor started
+2013-06-13 04:24:16.949 (INFO ) [0x40000a1b970] MIR-08000-3BFF1-8192:58399:ibm.runjob.client.options.Parser: set local socket to runjob_mux from properties file
+2013-06-13 04:24:19.658 (INFO ) [0x40000a1b970] MIR-08000-3BFF1-8192:241399:ibm.runjob.client.Job: job 241399 started
+2013-06-13 04:24:27.221 (INFO ) [0x40000403290] 58399:tatu.runjob.monitor: tracklib completed
+2013-06-13 05:21:18.834 (INFO ) [0x40000a1b970] MIR-08000-3BFF1-8192:241399:ibm.runjob.client.Job: exited with status 0
+2013-06-13 05:21:18.834 (WARN ) [0x40000a1b970] MIR-08000-3BFF1-8192:241399:ibm.runjob.client.Job: 48 RAS events
+2013-06-13 05:21:18.834 (WARN ) [0x40000a1b970] MIR-08000-3BFF1-8192:241399:ibm.runjob.client.Job: most recent RAS event text: L1P Correctable Error Summary : count=1 core=6 L1P_ESR : [ERR_RELOAD_ECC_X2] correctable reload data ECC error;
+2013-06-13 05:21:18.834 (INFO ) [0x40000a1b970] tatu.runjob.client: task exited with status 0
+2013-06-13 05:21:18.835 (INFO ) [0x40000403290] 58399:tatu.runjob.monitor: monitor terminating
+2013-06-13 05:21:18.838 (INFO ) [0x40000a1b970] tatu.runjob.client: monitor completed
