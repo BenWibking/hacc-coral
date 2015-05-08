@@ -2,7 +2,7 @@
 0           # jinit, 0=>internal ICs, 1=>read ICs, 2=>restart ICs
 1           # icbc, 0=>enforce periodic BCs, otherwise not (for jinit=1)
 1           # norm, 0=>COBE 4-yr B/W, 1=> sigma8, 2=>COBE Peebles
-3           # trans, 0=>T(k)=1, 1=>T(k)=H/S, 2=>T(k)=K/H, 3=>T(k)=CMBFAST
+0           # trans, 0=>T(k)=1, 1=>T(k)=H/S, 2=>T(k)=K/H, 3=>T(k)=CMBFAST
 1           # initp, 0=>particle ICs before BCs, 1=>after, 2=>density ICc, else no print
 2           # norder, order of time integration (locked to 2 here)
 9           # frm, output format, 1=> ascii, 2=> binary, 3=> ascii, 2d density

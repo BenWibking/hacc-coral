@@ -1,0 +1,123 @@
+The Hardware Accelerated Cosmology Code (HACC) framework uses N-body 
+techniques to simulate the formation of structure in collisionless 
+fluids under the influence of gravity in an expanding universe. The 
+main scientific goal is to simulate the evolution of the Universe from 
+its early times to today and to advance our understanding of dark 
+energy and dark matter, the two components that make up 95% of our 
+Universe. 
+
+The HACC framework has been designed with great flexibility in mind -- 
+it is easily portable between different high-performance computing
+platforms. The very first version of the code was optimized to run on 
+the Roadrunner cell-hybrid architecture at Los Alamos National 
+Laboratory. The first extension was written for CPU/GPU systems. A version 
+running on CPUs only also exists and is currently being optimized for 
+the BlueGene/Q architecture to arrive at Argonne National Laboratory 
+next year. An overview of the code structure is given in Habib et 
+al. Journal of Physics: Conf. Series, 180, 012019 (2009) and Pope et 
+al. Comp. Sci. Eng. 12, 17 (2010).  While the original code was developed at 
+Los Alamos, part of the development team has since moved to Argonne, 
+where the focus for new developments now resides.  Collaborations with Los 
+Alamos are ongoing. 
+
+The CORAL distribution of HACC framework is a highly tuned BG/Q version of 
+the code - this version was demonstrated to run on entire Sequoia 96 rack 
+installation in LLNL and reaching 13.92 Petaflops, 69.2% of machine peak 
+performance. 
+
+The code is hybrid MPI-OpenMP and depends on external FFT library. Both 
+FFTW version 3.2 or later and IBM ESSL version 5.1 and later can be used. 
+To compile the code, one needs first to modify the src/env/bashrc.vesta 
+file accordingly. On BG/Q performance and timing numbers are obtained with
+the help of based on BG/Q BGPM hardware Bob Walkup's performance library 
+libmpihpm_smp.a. Offerer may modify src/simulation/driver_hires.cxx file 
+and insert equivalent function calls to start and stop counting performance 
+data and/or time cycles. Both, flop rate and run time measurements are 
+desired. Once proper changes are made, one needs to "source  bashrc.vesta" 
+the file, type "make clean" from the top “src” source tree level to ensure 
+the clean build, after which type “make” in the directory “src/cpu”. The 
+executable will be build as “src/cpu/vesta/hacc_tpm”.
+
+The main input parameters are given in “indat” data file. For an example 
+“00512_16x16x16_1112” run case, the major parameter of the run is  
+“np = 2560”, the number of particles per dimension. This parameter determines 
+the total number of “alive” particles and therefore, the size of the run: 
+N = np**3 = 2560**3 = 16.78 Millions of particles. For this problem set up, 
+the number of grid points per dimension, “ng”, should match the number of 
+particles per dimension; even though the code can handle other use cases. 
+Finally, the two parameters, the number of time steps “nsteps”, and the number 
+of sub-steps, “nsub”, are used to set up the duration of the run. The “nsteps” 
+argument controls the number of long force evaluations and therefore determines 
+the communication intensity of the run. The “nsub” argument controls how many 
+time steps to proceed between the long force evaluation, and therefore determines 
+the computational intensity of the run. The typical values for nsub are between 
+3 and 10. We propose to use nstep=3 and nsub=5 for evaluation purposes. 
+
+HACC is intensively using thread stacks for local and private data; therefore 
+the default stack size that most OS provide may be insufficiently small for 
+successful run. We recommend to use the thread stack size around 4 MB.
+
+The result of the run is produced in file “m000.pk.fin” which presents the 
+integrated spectrum. The standard output will also contain a set of performance 
+and timing values. The example run, 512 nodes, 16 MPI processes on a node, 4 OpenMP 
+threads per process, is using around 380MB of memory per MPI process. 
+The partial standard output may look like the following:
+
+=========================================================
+%egrep 'Partition|Total|Initialize|STEP|step|Threads' HACC_N512_R16_8192_4.output 
+Partition 3D: [16:32:16]
+Threads per process: 4
+Initializer will use 8192 processors.
+Initializer: code performance summary 
+InitialExchange TotalAliveParticles 16777216000
+TotalAliveParticles 16777216000
+TotalDeadParticles  10900620029
+STEP 0, pp = 0.019608, a = 0.019608, z = 50.000003
+step   max  9.031e+02 s  avg  9.030e+02 s  min  9.030e+02 s
+STEP 1, pp = 0.028945, a = 0.028945, z = 33.548389
+step   max  8.898e+02 s  avg  8.897e+02 s  min  8.896e+02 s
+STEP 2, pp = 0.038282, a = 0.038282, z = 25.121953
+step   max  8.882e+02 s  avg  8.881e+02 s  min  8.880e+02 s
+step   max  2.681e+03 s  avg  2.681e+03 s  min  2.681e+03 s
+=========================================================
+
+On BG/Q, performance numbers are obtained from “hpm_job_summary.*” set of files:
+
+=========================================================
+%grep "Total weighted TFlops" hpm_job_summary.*
+hpm_job_summary.0.0:Total weighted TFlops = 64.081359
+hpm_job_summary.0.0:Total weighted TFlops = 67.219718
+hpm_job_summary.1.0:Total weighted TFlops = 66.021326
+hpm_job_summary.1.0:Total weighted TFlops = 67.650709
+hpm_job_summary.2.0:Total weighted TFlops = 66.697010
+hpm_job_summary.2.0:Total weighted TFlops = 67.797922
+hpm_job_summary.206100.0:Total weighted TFlops = 66.590467
+hpm_job_summary.206100.0:Total weighted TFlops = 67.797922
+=========================================================
+
+To set up “weak scaling” study, one has to change a number of input parameters 
+to preserve the constant number of particles per MPI process. To increase the 
+number of MPI processes 8 times, one needs to increase “np”, “ng”, and 
+“physical box size” proportionally 2 times. Additionally, one needs to 
+change in “-t” input argument of the program to match new geometry of MPI processes 
+and ensure the proper decomposition for 3D FFT. The new choice of “np” and “ng” 
+values can be subject to restrictions posed by the underlying topology of the target 
+platform. For example, when scaling the example discussed above to 4 times the 
+number of processes, from 8192 MPI processes to 32768 MPI processes, one need to 
+increase “np”, “ng”, and “physical box” a (cubic root of 4) = 1.587 times and have 
+np = 4064, ng = 4064, and “physical box = 3200”. The natural 3D topology of 
+32768 MPI processes will be 32x32x32; and the code requires that any possible 
+dimension of 3D and 2D decompositions have integer number of grid points. In other 
+words, ng must divide 32 and 32x32=1024. Both ng = 3072 and ng=4096 are acceptable 
+values; also, the ng=4096 is a better choice. For a more complex 64x32x16 case, ng 
+must divide 16, 32, 64, 16x32, 16x64, and 32x64, therefore giving ng = 2048, 4096, 
+or 6144. The best computational result will be obtained with the geometry of 
+approximately the same size in each dimension; because the total number of particles, 
+which is the number of “alive” particles plus the number of “dead” particles, is 
+minimal. Only the number of “alive” particles should be considered for performance results.
+
+Vitali Morozov (morozov@anl.gov)
+Argonne Leadership Computing Facility
+Argonne National Laboratory
+
+
